@@ -13,6 +13,7 @@ class ListJoined extends StatelessWidget {
       HuiInfo(name: 'Chú bé đần 4', money: '35,000,000đ', thamGia: '16 người', hanGop: 'mỗi cuối tháng', moiKy: '300,000đ', soKy: '1299', daGop: '8/1299 kỳ', tongThangGop: '1532 tháng', hanGopSapToi: '21/02/2021', hanHotSapToi: '28/02/2022', isNear: false),
     ];
 
+
     return Align(
       alignment: Alignment.center,
       child: SizedBox(
@@ -24,7 +25,7 @@ class ListJoined extends StatelessWidget {
             children: listJoined.map((e) {
               return InkWell(
                 onTap: (){
-                  Navigator.pushNamed(context, '/infoHui', arguments: e);
+                  Navigator.pushNamed(context, '/infoHui', arguments: {'huiInfo' : e, 'isExit' : true});
                 },
                 child: Card(
                   shape: RoundedRectangleBorder(

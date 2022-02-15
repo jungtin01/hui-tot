@@ -1,4 +1,9 @@
 import 'package:flur_04022022/models/conhui_huiInfo.dart';
+import 'package:flur_04022022/models/user.dart';
+import 'package:flur_04022022/views/const_style/const.dart';
+import 'package:flur_04022022/views/infoHui_screen/button_exit.dart';
+import 'package:flur_04022022/views/infoHui_screen/button_gopHui_dauGia.dart';
+import 'package:flur_04022022/views/infoHui_screen/list_member.dart';
 import 'package:flutter/material.dart';
 
 class InfoHui extends StatefulWidget {
@@ -11,10 +16,24 @@ class InfoHui extends StatefulWidget {
 
 class _InfoHuiState extends State<InfoHui> {
   HuiInfo huiInfo = HuiInfo();
+  Map data = {};
+  bool isExit = true;
 
   @override
   Widget build(BuildContext context) {
-    huiInfo = ModalRoute.of(context)?.settings.arguments as HuiInfo;
+    data = ModalRoute.of(context)?.settings.arguments as Map ;
+    huiInfo = data['huiInfo'] as HuiInfo;
+    isExit = data['isExit'] as bool;
+    //huiInfo = ModalRoute.of(context)?.settings.arguments as HuiInfo;
+
+    List<User> listUser = [
+      User(ten: 'Chú Hoàng Lâm', tuoi: '39', thuNhapThang: '17,000,000đ', noiO: 'TPHCM', giaoDichThanhCOng: '102 giao dịch'),
+      User(ten: 'Nguyễn Văn A', tuoi: '27', thuNhapThang: '17,000,000đ', noiO: 'TPHCM', giaoDichThanhCOng: '102 giao dịch'),
+      User(ten: 'Bành Thị Bé Ba', tuoi: '52', thuNhapThang: '17,000,000đ', noiO: 'TPHCM', giaoDichThanhCOng: '102 giao dịch'),
+      User(ten: 'Lê Phúc Thịnh', tuoi: '22', thuNhapThang: '17,000,000đ', noiO: 'TPHCM', giaoDichThanhCOng: '102 giao dịch'),
+      User(ten: 'Võ Nhật Thiên', tuoi: '65', thuNhapThang: '17,000,000đ', noiO: 'TPHCM', giaoDichThanhCOng: '102 giao dịch'),
+      User(ten: 'Nguyễn Văn Lương', tuoi: '39', thuNhapThang: '17,000,000đ', noiO: 'TPHCM', giaoDichThanhCOng: '102 giao dịch'),
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -57,7 +76,7 @@ class _InfoHuiState extends State<InfoHui> {
                 height: 500,
                 child: Column(
                   children: [
-                    Text(huiInfo.money as String, style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Color(0xFF089C44)),),
+                    Text(huiInfo.money as String, style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: mainColor),),
                     SizedBox(height: 5,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -77,7 +96,7 @@ class _InfoHuiState extends State<InfoHui> {
                             Text('Số kỳ')
                           ],
                         ),
-                        Text(huiInfo.soKy as String)
+                        Text(huiInfo.soKy as String, style: TextStyle(fontWeight: FontWeight.bold),)
                       ],
                     ),
                     SizedBox(height: 10,),
@@ -91,7 +110,7 @@ class _InfoHuiState extends State<InfoHui> {
                             Text('Mỗi kỳ')
                           ],
                         ),
-                        Text(huiInfo.moiKy as String)
+                        Text(huiInfo.moiKy as String, style: TextStyle(fontWeight: FontWeight.bold),)
                       ],
                     ),
                     SizedBox(height: 10,),
@@ -105,7 +124,7 @@ class _InfoHuiState extends State<InfoHui> {
                             Text('Hạn góp')
                           ],
                         ),
-                        Text(huiInfo.hanGop as String)
+                        Text(huiInfo.hanGop as String, style: TextStyle(fontWeight: FontWeight.bold),)
                       ],
                     ),
                     SizedBox(height: 10,),
@@ -119,13 +138,13 @@ class _InfoHuiState extends State<InfoHui> {
                             Text('Tổng tháng góp')
                           ],
                         ),
-                        Text(huiInfo.tongThangGop as String)
+                        Text(huiInfo.tongThangGop as String, style: TextStyle(fontWeight: FontWeight.bold),)
                       ],
                     ),
                     Container(
                       margin: EdgeInsets.fromLTRB(45.0,20.0,45.0,20.0),
                       child: Divider(
-                        color: Color(0xFF089C44),
+                        color: mainColor,
                         height: 1,
                         thickness: 1,
                       ),
@@ -142,7 +161,7 @@ class _InfoHuiState extends State<InfoHui> {
                             Text('Tuổi')
                           ],
                         ),
-                        Text('29 tuổi')
+                        Text('29 tuổi', style: TextStyle(fontWeight: FontWeight.bold),)
                       ],
                     ),
                     SizedBox(height: 10,),
@@ -156,7 +175,7 @@ class _InfoHuiState extends State<InfoHui> {
                             Text('Thu nhập tháng')
                           ],
                         ),
-                        Text('17,000,000đ')
+                        Text('17,000,000đ', style: TextStyle(fontWeight: FontWeight.bold),)
                       ],
                     ),
                     SizedBox(height: 10,),
@@ -170,7 +189,7 @@ class _InfoHuiState extends State<InfoHui> {
                             Text('Nơi ở')
                           ],
                         ),
-                        Text('TPHCM')
+                        Text('TPHCM', style: TextStyle(fontWeight: FontWeight.bold),)
                       ],
                     ),
                     SizedBox(height: 10,),
@@ -184,16 +203,25 @@ class _InfoHuiState extends State<InfoHui> {
                             Text('Giao dịch thành công')
                           ],
                         ),
-                        Text('102 giao dịch')
+                        Text('102 giao dịch', style: TextStyle(fontWeight: FontWeight.bold),)
                       ],
                     ),
+                    //ButtonExit()
+                    isExit ? ButtonExit() : ButtonGopHui()
                   ],
                 ),
               ),
               Container(
                 color: Color(0xFF089C44),
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 50.0, bottom: 40.0),
+                  child: Column(
+                    children: listUser.map((e){
+                      return ListMemberJoined(e);
+                    }).toList(),
+                  ),
+                )
               )
             ],
           ),
