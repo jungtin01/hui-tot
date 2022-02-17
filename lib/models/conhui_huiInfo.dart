@@ -12,6 +12,7 @@ class HuiInfo {
   String ? hanGopSapToi;
   String ? hanHotSapToi;
   bool ? isNear;
+  String ? giaoDichThanhCong;
 
   HuiInfo({
       this.name,
@@ -24,6 +25,7 @@ class HuiInfo {
       this.tongThangGop,
       this.hanGopSapToi,
       this.hanHotSapToi,
-      this.isNear
+      this.isNear,
+      this.giaoDichThanhCong
   });
 }

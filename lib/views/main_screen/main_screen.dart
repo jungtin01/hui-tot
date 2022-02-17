@@ -1,4 +1,5 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
+import 'package:flur_04022022/views/discovery_srceen/discovery.dart';
 import 'package:flur_04022022/views/home_screen/home.dart';
 import 'package:flur_04022022/views/person_screen/person.dart';
 import 'package:flur_04022022/views/test.dart';
@@ -19,7 +20,7 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     childPage = [
-      Test(),
+      DiscoveryScreen(),
       MyHomePage(),
       Personal()
     ];

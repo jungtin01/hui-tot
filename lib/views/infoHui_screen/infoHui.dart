@@ -4,6 +4,7 @@ import 'package:flur_04022022/views/const_style/const.dart';
 import 'package:flur_04022022/views/infoHui_screen/button_exit.dart';
 import 'package:flur_04022022/views/infoHui_screen/button_gopHui_dauGia.dart';
 import 'package:flur_04022022/views/infoHui_screen/list_member.dart';
+import 'package:flur_04022022/views/infoHui_screen/list_member_joinView.dart';
 import 'package:flutter/material.dart';
 
 class InfoHui extends StatefulWidget {
@@ -19,21 +20,13 @@ class _InfoHuiState extends State<InfoHui> {
   Map data = {};
   bool isExit = true;
 
+
   @override
   Widget build(BuildContext context) {
     data = ModalRoute.of(context)?.settings.arguments as Map ;
     huiInfo = data['huiInfo'] as HuiInfo;
     isExit = data['isExit'] as bool;
     //huiInfo = ModalRoute.of(context)?.settings.arguments as HuiInfo;
-
-    List<User> listUser = [
-      User(ten: 'Chú Hoàng Lâm', tuoi: '39', thuNhapThang: '17,000,000đ', noiO: 'TPHCM', giaoDichThanhCOng: '102 giao dịch'),
-      User(ten: 'Nguyễn Văn A', tuoi: '27', thuNhapThang: '17,000,000đ', noiO: 'TPHCM', giaoDichThanhCOng: '102 giao dịch'),
-      User(ten: 'Bành Thị Bé Ba', tuoi: '52', thuNhapThang: '17,000,000đ', noiO: 'TPHCM', giaoDichThanhCOng: '102 giao dịch'),
-      User(ten: 'Lê Phúc Thịnh', tuoi: '22', thuNhapThang: '17,000,000đ', noiO: 'TPHCM', giaoDichThanhCOng: '102 giao dịch'),
-      User(ten: 'Võ Nhật Thiên', tuoi: '65', thuNhapThang: '17,000,000đ', noiO: 'TPHCM', giaoDichThanhCOng: '102 giao dịch'),
-      User(ten: 'Nguyễn Văn Lương', tuoi: '39', thuNhapThang: '17,000,000đ', noiO: 'TPHCM', giaoDichThanhCOng: '102 giao dịch'),
-    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -216,11 +209,7 @@ class _InfoHuiState extends State<InfoHui> {
                 width: MediaQuery.of(context).size.width,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 50.0, bottom: 40.0),
-                  child: Column(
-                    children: listUser.map((e){
-                      return ListMemberJoined(e);
-                    }).toList(),
-                  ),
+                  child: isExit ? ListMemberJoined() : JoinView()
                 )
               )
             ],

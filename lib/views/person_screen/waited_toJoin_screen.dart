@@ -51,7 +51,9 @@ class ListWait extends StatelessWidget {
             child: ListView(
               children: listWait.map((e) {
                 return InkWell(
-                  onTap: (){},
+                  onTap: (){
+                    Navigator.pushNamed(context, '/infoHui', arguments: {'huiInfo' : e, 'isExit' : false});
+                  },
                   child: Card(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5.0),

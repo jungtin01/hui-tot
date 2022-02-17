@@ -28,6 +28,7 @@ class _SlashPageState extends State<SlashPage> {
         child: Image.asset(
           'assets/huitot_loading.png',
           height: 120,
+
         ),
       ),
     );
