@@ -37,9 +37,11 @@ class MyHomePage extends StatelessWidget {
                 ),
                 SizedBox(width: 30,),
                 TextButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/addMoney');
+                  },
                   icon: const Icon(Icons.monetization_on),
-                  label: const Text("Mở Dây Hụi"),
+                  label: const Text("Nạp tiền"),
                   style: TextButton.styleFrom(
                     primary: Colors.yellow,
                   ),

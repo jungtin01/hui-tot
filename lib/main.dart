@@ -1,6 +1,8 @@
+import 'package:flur_04022022/views/addMoney_screen/addMoney.dart';
 import 'package:flur_04022022/views/infoHui_screen/infoHui.dart';
 import 'package:flur_04022022/views/login_screen/login.dart';
 import 'package:flur_04022022/views/main_screen/main_screen.dart';
+import 'package:flur_04022022/views/personal_info_screen/personal_info.dart';
 import 'package:flur_04022022/views/register_screen/register.dart';
 import 'package:flur_04022022/views/slash_screen/slash.dart';
 import 'package:flutter/cupertino.dart';
@@ -31,6 +33,8 @@ class MyApp extends StatelessWidget {
         '/register': (context) => RegisterPage(),
         '/login': (context) => LoginPage(),
         '/infoHui': (context) => InfoHui(),
+        '/personalInfo': (context) => PersonalInfo(),
+        '/addMoney': (context) => AddMoney()
       },
       //home: MyHomePage(),
     );

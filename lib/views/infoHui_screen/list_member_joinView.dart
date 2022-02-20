@@ -39,7 +39,7 @@ class _JoinViewState extends State<JoinView> {
                       currentIndex = 0;
                     });
                   },
-                  child: Text('Đã tham gia', style: TextStyle(color: Colors.white),)
+                  child: Text('Thành viên (6)', style: TextStyle(color: Colors.white, fontSize: 15),)
               ),
             ),
             DecoratedBox(
@@ -56,7 +56,7 @@ class _JoinViewState extends State<JoinView> {
                       currentIndex = 1;
                     });
                   },
-                  child: Text('Đang chờ', style: TextStyle(color: Colors.white),)
+                  child: Text('Lịch sử giao dịch', style: TextStyle(color: Colors.white, fontSize: 15),)
               ),
             ),
           ],

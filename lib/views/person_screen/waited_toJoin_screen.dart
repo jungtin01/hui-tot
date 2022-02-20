@@ -52,7 +52,7 @@ class ListWait extends StatelessWidget {
               children: listWait.map((e) {
                 return InkWell(
                   onTap: (){
-                    Navigator.pushNamed(context, '/infoHui', arguments: {'huiInfo' : e, 'isExit' : false});
+                    Navigator.pushNamed(context, '/infoHui', arguments: {'huiInfo' : e, 'isExit' : 1});
                   },
                   child: Card(
                     shape: RoundedRectangleBorder(

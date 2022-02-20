@@ -25,7 +25,7 @@ class ListJoined extends StatelessWidget {
             children: listJoined.map((e) {
               return InkWell(
                 onTap: (){
-                  Navigator.pushNamed(context, '/infoHui', arguments: {'huiInfo' : e, 'isExit' : true});
+                  Navigator.pushNamed(context, '/infoHui', arguments: {'huiInfo' : e, 'isExit' : 2});
                 },
                 child: Card(
                   shape: RoundedRectangleBorder(
