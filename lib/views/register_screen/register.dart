@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flur_04022022/views/register_screen/radio_gender.dart';
+import 'package:flur_04022022/views/register_screen/radio_role.dart';
 import 'package:flur_04022022/views/register_screen/text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -79,6 +80,11 @@ class _RegisterPageState extends State<RegisterPage> {
               Container(
                 margin: EdgeInsets.only(left: size.width * 0.08, right: size.width * 0.08),
                 child: TextFieldInfo('Xác nhận mật khẩu'),
+              ),
+              SizedBox(height: size.height * 0.02,),
+              Container(
+                margin: EdgeInsets.only(left: size.width * 0.08, right: size.width * 0.08),
+                child: RadioRole(selectedValue),
               ),
               SizedBox(height: size.height * 0.02,),
               Container(
@@ -186,6 +192,16 @@ class _RegisterPageState extends State<RegisterPage> {
               Container(
                 margin: EdgeInsets.only(left: size.width * 0.08, right: size.width * 0.08),
                 child: TextFieldInfo('Địa chỉ thường trú'),
+              ),
+              SizedBox(height: size.height * 0.02,),
+              Container(
+                margin: EdgeInsets.only(left: size.width * 0.08, right: size.width * 0.08),
+                child: TextFieldInfo('Thu nhập cá nhân'),
+              ),
+              SizedBox(height: size.height * 0.02,),
+              Container(
+                margin: EdgeInsets.only(left: size.width * 0.08, right: size.width * 0.08),
+                child: TextFieldInfo('Số CMND hoặc CCCD'),
               ),
               SizedBox(height: size.height * 0.05,),
               ElevatedButton(

@@ -130,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 child: Container(
                   height: 114,
-                  width: 334,
+                  width: 350,
                   padding: EdgeInsets.fromLTRB(13, 14, 13, 14),
                   decoration: BoxDecoration(
                     color: Color(0xFF78B48C),
@@ -144,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Tổng sẽ chi tháng', style: TextStyle(color: Colors.white70, fontSize: 15),),
+                          Text('Tổng tiền góp hụi trong tháng', style: TextStyle(color: Colors.white70, fontSize: 15),),
                           Text('5,330,500 đ', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),)
                         ],
                       ),
