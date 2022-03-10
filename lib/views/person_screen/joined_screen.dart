@@ -41,8 +41,29 @@ class ListJoined extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(e.name as String, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-                            Text(e.money as String, style: TextStyle(fontSize: 20, color: Color(0xFF089C44) , fontWeight: FontWeight.bold),)
+                            Row(
+                              children: [
+                                CircleAvatar(
+                                  child: Image.network("https://www.hugohouse.edu.vn/sites/default/files/testimonial/person_2.png"),
+                                ),
+                                SizedBox(width: 5,),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(e.name as String, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+                                    Text('Chủ hụi')
+                                  ],
+                                )
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(e.money as String, style: TextStyle(fontSize: 16, color: Color(0xFF089C44) , fontWeight: FontWeight.bold),),
+                                Text('tổng số tiền / lần hốt'),
+                              ],
+                            )
+                            //Text(e.money as String, style: TextStyle(fontSize: 20, color: Color(0xFF089C44) , fontWeight: FontWeight.bold),)
                           ],
                         ),
                         SizedBox(height: 3,),

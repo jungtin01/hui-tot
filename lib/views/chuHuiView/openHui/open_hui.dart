@@ -1,16 +1,22 @@
 import 'package:flur_04022022/views/addMoney_screen/radio_moneyChoose.dart';
+import 'package:flur_04022022/views/chuHuiView/openHui/column_hui_register.dart';
+import 'package:flur_04022022/views/const_style/const.dart';
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-class AddMoney extends StatelessWidget {
-  const AddMoney({Key? key}) : super(key: key);
+class OpenHui extends StatelessWidget {
+
+  const OpenHui({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<String> listPeople = ['20','15','12','10'];
+    List<String> listGetMoney = ['Mỗi 5 ngày','Mỗi 10 ngày','Mỗi 15 ngày','Mỗi 30 ngày'];
+    List<String> listCoLai = ['Có lãi', 'Không lãi'];
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFF0E4C4),
+        backgroundColor: Color(0xFFC2DBC9),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 5),
@@ -46,7 +52,7 @@ class AddMoney extends StatelessWidget {
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.2,
-                color: Color(0xFFF0E4C4),
+                color: Color(0xFFC2DBC9),
                 child: Column(
                   children: [
                     Padding(
@@ -73,22 +79,51 @@ class AddMoney extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 5,),
-                    Text('Số tiền muốn nạp',  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                    Text('Tổng số tiền/1 lần hốt hụi',  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                   ],
                 ),
               ),
               Container(
+                padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                 height: MediaQuery.of(context).size.height * 0.8,
-                color: Color(0xFFDEBA3B),
+                color: mainColor,
                 //color: Colors.amber,
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   children: [
                     SizedBox(height: 20,),
-                    Text('Nguồn tiền', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),),
-                    RadioMoneyChoose(1),
-                    Image.asset(
-                        'assets/banks.png',
+                    ColumnHuiOpen(Icons.person_outline, 'tham gia', listPeople[0] ,listPeople, true),
+                    SizedBox(height: 10,),
+                    ColumnHuiOpen(Icons.calendar_today_outlined, 'hạn thu tiền',listGetMoney[0], listGetMoney, true),
+                    SizedBox(height: 10,),
+                    // ColumnHuiOpen(Icons.arrow_upward_outlined, 'Lãi',listCoLai[0]  ,listCoLai, true),
+                    // SizedBox(height: 10,),
+                    ColumnHuiOpen(Icons.monetization_on_outlined, 'Số tiền mỗi kì',listCoLai[0]  ,listCoLai, false),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(15 , 20 , 15 , 0),
+                      child: Divider(
+                        color: Colors.white,
+                        height: 1,
+                        thickness: 1,
+                      ),
+                    ),
+                    SizedBox(height: 15,),
+                    Text('Tính toán dự đoán', style: TextStyle(color: Colors.white, fontSize: 24),),
+                    SizedBox(height: 20,),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.calendar_today_outlined, color: Colors.white,),
+                              SizedBox(width: 8,),
+                              Text('Tổng số kỳ sẽ thu', style: TextStyle(color: Colors.white, fontSize: 15),),
+                            ],
+                          ),
+                          Text('0', style: TextStyle(color: Colors.white, fontSize: 15))
+                        ],
+                      ),
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 30),
@@ -110,7 +145,7 @@ class AddMoney extends StatelessWidget {
                             Alert(
                               context: context,
                               type: AlertType.success,
-                              title: "Thành công",
+                              title: "Bạn đã mở hụi thành công.",
                               buttons: [
                                 DialogButton(
                                   child: Text(
@@ -126,7 +161,7 @@ class AddMoney extends StatelessWidget {
                               ],
                             ).show();
                           },
-                          child: Text('Nạp tiền', style: TextStyle(color: Colors.yellow),)
+                          child: Text('Bắt đầu mở hụi', style: TextStyle(color: Colors.yellow),)
                       ),
                     )
                   ],

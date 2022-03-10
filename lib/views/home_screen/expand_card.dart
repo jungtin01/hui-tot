@@ -1,5 +1,6 @@
 import 'package:flur_04022022/models/voteView.dart';
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 class ExpandGreenCard extends StatelessWidget {
   VoteView voteView;
   int color;
@@ -65,7 +66,58 @@ class ExpandGreenCard extends StatelessWidget {
           Row(
             children: [
               TextButton.icon(
-                  onPressed: (){},
+                  onPressed: (){
+                    Alert(
+                      context: context,
+                      type: AlertType.warning,
+                      title: "Số tiền bạn phải đóng : 300,999 đ",
+                      buttons: [
+                        DialogButton(
+                          child: Text(
+                            "Đồng ý",
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                          onPressed: () {
+                            Alert(
+                              context: context,
+                              type: AlertType.success,
+                              title: "Thành công",
+                              buttons: [
+                                DialogButton(
+                                  child: Text(
+                                    "Xác nhận",
+                                    style: TextStyle(color: Colors.white, fontSize: 20),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    Navigator.pop(context);
+                                    //Navigator.pop(context);
+                                    //Navigator.pop(context);
+                                  },
+                                  width: 120,
+                                )
+                              ],
+                            ).show();
+                          },
+                          color: Color.fromRGBO(0, 179, 134, 1.0),
+                        ),
+                        DialogButton(
+                          child: Text(
+                            "Hủy",
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            //Navigator.pop(context);
+                          },
+                          gradient: LinearGradient(colors: [
+                            Color.fromRGBO(116, 116, 191, 1.0),
+                            Color.fromRGBO(52, 138, 199, 1.0)
+                          ]),
+                        )
+                      ],
+                    ).show();
+                  },
                   icon: Icon(Icons.add_circle),
                   label: Text('Đóng hụi', style: TextStyle(color: Colors.white),),
                   style: TextButton.styleFrom(

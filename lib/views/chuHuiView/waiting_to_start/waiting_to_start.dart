@@ -1,14 +1,14 @@
 import 'package:flur_04022022/models/conhui_huiInfo.dart';
 import 'package:flutter/material.dart';
 
-class ListWait extends StatelessWidget {
-  const ListWait({Key? key}) : super(key: key);
+class WaitingToStart extends StatelessWidget {
+  const WaitingToStart({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     List<HuiInfo> listWait = [
       HuiInfo(
-          name: 'Chú bé đần',
+          name: 'Đỗ Tuấn Kiệt',
           money: '4,000,000đ',
           thamGia: '9/12 người',
           hanGop: 'mỗi cuối tháng',
@@ -16,7 +16,7 @@ class ListWait extends StatelessWidget {
           soKy: '12',
           tongThangGop: '12 tháng'),
       HuiInfo(
-          name: 'Chú bé đần 2',
+          name: 'Đỗ Tuấn Kiệt',
           money: '50,000,000đ',
           thamGia: '7/8 người',
           hanGop: 'mỗi cuối tháng',
@@ -24,7 +24,7 @@ class ListWait extends StatelessWidget {
           soKy: '155',
           tongThangGop: '152 tháng'),
       HuiInfo(
-          name: 'Chú bé đần 3',
+          name: 'Đỗ Tuấn Kiệt',
           money: '44,000,000đ',
           thamGia: '5/8 người',
           hanGop: 'mỗi cuối tháng',
@@ -32,7 +32,7 @@ class ListWait extends StatelessWidget {
           soKy: '12',
           tongThangGop: '12 tháng'),
       HuiInfo(
-          name: 'Chú bé đần 4',
+          name: 'Đỗ Tuấn Kiệt',
           money: '35,000,000đ',
           thamGia: '12/16 người',
           hanGop: 'mỗi cuối tháng',
@@ -45,14 +45,15 @@ class ListWait extends StatelessWidget {
       alignment: Alignment.center,
       child: SizedBox(
           width: 334,
-          height: 470,
+          height: 550,
           child: Padding(
             padding: const EdgeInsets.only(top: 20),
             child: ListView(
               children: listWait.map((e) {
                 return InkWell(
                   onTap: (){
-                    Navigator.pushNamed(context, '/infoHui', arguments: {'huiInfo' : e, 'isExit' : 1});
+                    //Navigator.pushNamed(context, '/infoHui', arguments: {'huiInfo' : e, 'isExit' : 1});
+                    Navigator.pushNamed(context, '/waitingInfoHui', arguments: {'huiInfo' : e});
                   },
                   child: Card(
                     shape: RoundedRectangleBorder(

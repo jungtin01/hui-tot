@@ -2,13 +2,30 @@ import 'package:flur_04022022/models/voteView.dart';
 import 'package:flutter/material.dart';
 import 'package:flur_04022022/views/home_screen/card_yellow.dart';
 import 'package:flur_04022022/views/home_screen/green_card.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+
 
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final myControllerAuction = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myControllerAuction.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
+
     List<VoteView> listVoteView = [
       VoteView(date: '23/12/2021', money: '300,999đ', punish: '100,200đ', ky: '9/12' ,chu: 'Nguyễn Ngọc Thanh Hóa',thamGia: '12', isLate: true),
       VoteView(date: '23/12/2021', money: '300,999đ', daDauGia: '8/12 người', ky: '9/12' ,chu: 'Nguyễn Ngọc Thanh Hóa',thamGia: '12',isLate: false),
@@ -27,23 +44,82 @@ class MyHomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Alert(
+                        context: context,
+                        title: "Mời nhập số tiền muốn rút",
+                        content: Column(
+                          children: [
+                            TextField(
+                              controller: myControllerAuction,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(
+                                icon: Icon(FontAwesomeIcons.moneyBillAlt),
+                                labelText: 'số tiền muốn rút',
+                              ),
+                            ),
+                          ],
+                        ),
+                        buttons: [
+                          DialogButton(
+                            onPressed: () {
+                              Alert(
+                                context: context,
+                                type: AlertType.warning,
+                                title: "Bạn có chắc muốn rút số tiền : " + myControllerAuction.text + " ?",
+                                buttons: [
+                                  DialogButton(
+                                    child: Text(
+                                      "Xác nhận",
+                                      style: TextStyle(color: Colors.white, fontSize: 20),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/getMoney');
+                                    },
+                                    color: Color.fromRGBO(0, 179, 134, 1.0),
+                                  ),
+                                  DialogButton(
+                                    child: Text(
+                                      "Hủy",
+                                      style: TextStyle(color: Colors.white, fontSize: 20),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      Navigator.pop(context);
+                                    },
+                                    gradient: LinearGradient(colors: [
+                                      Color.fromRGBO(116, 116, 191, 1.0),
+                                      Color.fromRGBO(52, 138, 199, 1.0)
+                                    ]),
+                                  )
+                                ],
+                              ).show();
+                            },
+                            child: Text(
+                              "Xác nhận",
+                              style: TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                          )
+                        ]).show();
+                  },
                   icon: const Icon(Icons.add_circle),
-                  label: const Text("Mở Dây Hụi"),
+                  label: const Text("Rút tiền"),
                   style: TextButton.styleFrom(
                       primary: Colors.white,
                       padding: EdgeInsets.all(10)
                   ),
                 ),
                 SizedBox(width: 30,),
-                TextButton.icon(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/addMoney');
-                  },
-                  icon: const Icon(Icons.monetization_on),
-                  label: const Text("Nạp tiền"),
-                  style: TextButton.styleFrom(
-                    primary: Colors.yellow,
+                Container(
+                  child: TextButton.icon(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/addMoney');
+                    },
+                    icon: const Icon(Icons.monetization_on),
+                    label: const Text("Nạp tiền"),
+                    style: TextButton.styleFrom(
+                      primary: Colors.yellow,
+                    ),
                   ),
                 ),
               ],
@@ -69,14 +145,14 @@ class MyHomePage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('Tổng sẽ chi tháng', style: TextStyle(color: Colors.white70, fontSize: 15),),
-                          Text('5,330,500đ', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),)
+                          Text('5,330,500 đ', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),)
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Tổng hụi chưa hốt', style: TextStyle(color: Colors.white70, fontSize: 15),),
-                          Text('25,151,999đ', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),)
+                          Text('Số tiền trong ví', style: TextStyle(color: Colors.white70, fontSize: 15),),
+                          Text('5,000,000 đ', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),)
                         ],
                       ),
                     ],
@@ -92,11 +168,11 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             Container(
-                margin: EdgeInsets.only(left: 25, right: 295),
-                child: Text('Sắp Tới', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),)
+                margin: EdgeInsets.only(left: 25, right: 70, bottom: 10, top: 7),
+                child: Text('Sự Kiện Quan Trọng Sắp Tới', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),)
             ),
             SizedBox(
-              height: 320,
+              height: 295,
               // color: Colors.redAccent,
               child: ListView(
                 children: listVoteView.map((e) {

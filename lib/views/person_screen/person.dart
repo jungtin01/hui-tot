@@ -42,7 +42,7 @@ class _PersonalState extends State<Personal> {
                         currentIndex = 0;
                       });
                     },
-                    child: Text('Đã tham gia', style: TextStyle(color: Colors.white),)
+                    child: Text('Dây hụi đang tham gia', style: TextStyle(color: Colors.white),)
                 ),
               ),
               DecoratedBox(
@@ -59,7 +59,7 @@ class _PersonalState extends State<Personal> {
                         currentIndex = 1;
                       });
                     },
-                    child: Text('Đang chờ', style: TextStyle(color: Colors.white),)
+                    child: Text('Dây hụi đang chờ duyệt', style: TextStyle(color: Colors.white),)
                 ),
               ),
             ],

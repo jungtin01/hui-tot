@@ -164,7 +164,7 @@ class _InfoHuiState extends State<InfoHui> {
                     ),
                   ),
                   Text('Thông tin nhanh chủ hụi', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 4,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -214,10 +214,10 @@ class _InfoHuiState extends State<InfoHui> {
                         children: [
                           Icon(Icons.whatshot_outlined),
                           SizedBox(width: 7,),
-                          Text('Giao dịch thành công')
+                          Text('Dây hụi đã tạo')
                         ],
                       ),
-                      Text('102 giao dịch', style: TextStyle(fontWeight: FontWeight.bold),)
+                      Text('45 dây hụi', style: TextStyle(fontWeight: FontWeight.bold),)
                     ],
                   ),
                   //ButtonExit()

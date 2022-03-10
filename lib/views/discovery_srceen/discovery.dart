@@ -32,7 +32,7 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
         children: [
           Container(
             child: const Text(
-              'Khám phá',
+              'Tìm kiếm dây hụi mới',
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -53,9 +53,9 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
                     Container(
                       margin: const EdgeInsets.fromLTRB(16.0,0,16,0),
                       padding: const EdgeInsets.only(top: 7),
-                      height: 40,
+                      height: 35,
                       width: MediaQuery.of(context).size.width * 0.35,
-                      child: Text(_formatter.format(_lowValue).toString() + 'đ', style: TextStyle(fontSize: 20, color: Color(0xFF887638), fontWeight: FontWeight.bold, decoration: TextDecoration.underline), textAlign: TextAlign.center,),
+                      child: Text('Từ: ' + _formatter.format(_lowValue).toString() + 'đ', style: TextStyle(fontSize: 16, color: Color(0xFF887638), fontWeight: FontWeight.bold, decoration: TextDecoration.underline), textAlign: TextAlign.center,),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         color: Colors.white,
@@ -64,9 +64,9 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
                   Container(
                     margin: const EdgeInsets.fromLTRB(16.0,0,16,0),
                     padding: const EdgeInsets.only(top: 7),
-                    height: 40,
+                    height: 35,
                     width: MediaQuery.of(context).size.width * 0.35,
-                    child: Text(_formatter.format(_highValue).toString()+ 'đ', style: TextStyle(fontSize: 20, color: Color(0xFF887638), fontWeight: FontWeight.bold, decoration: TextDecoration.underline), textAlign: TextAlign.center,),
+                    child: Text('Đến: ' + _formatter.format(_highValue).toString()+ 'đ', style: TextStyle(fontSize: 16, color: Color(0xFF887638), fontWeight: FontWeight.bold, decoration: TextDecoration.underline), textAlign: TextAlign.center,),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       color: Colors.white,
@@ -77,7 +77,7 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(50,0,50,0),
                 child: RangeSlider(
-                    min: 0,
+                    min: 1000000,
                     max: 100000000,
                     divisions: 1000,
                     activeColor: Colors.white,
@@ -96,8 +96,10 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('1,000,000đ', style: TextStyle(color: Colors.white),),
-                    Text('100,000,000đ', style: TextStyle(color: Colors.white),)
+                    //Text('1,000,000đ', style: TextStyle(color: Colors.white),),
+                    //Text('100,000,000đ', style: TextStyle(color: Colors.white),)
+                    //Text('', style: TextStyle(color: Colors.white),),
+                    //Text('', style: TextStyle(color: Colors.white),)
                   ],
                 ),
               ),
@@ -133,7 +135,7 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
                     ),
                     Container(
                       padding: EdgeInsets.fromLTRB(15, 0,0,0),
-                      width: MediaQuery.of(context).size.width * 0.3,
+                      width: MediaQuery.of(context).size.width * 0.32,
                       decoration: BoxDecoration(
                           border: Border.all(width: 1, color: Colors.white)
                       ),
@@ -158,7 +160,7 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
                     ),
                     Container(
                       padding: EdgeInsets.fromLTRB(15,0,0,0),
-                      width: MediaQuery.of(context).size.width * 0.27,
+                      width: MediaQuery.of(context).size.width * 0.29,
                       decoration: BoxDecoration(
                           border: Border.all(width: 1, color: Colors.white)
                       ),

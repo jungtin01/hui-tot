@@ -5,8 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final myController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +38,9 @@ class LoginPage extends StatelessWidget {
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset('assets/huitot_login.png', fit: BoxFit.cover),
-              SizedBox(height: size.height * 0.07,),
+              SizedBox(height: size.height * 0.03,),
               Container(
-                margin: EdgeInsets.only(left: size.width * 0.08),
+                margin: EdgeInsets.only(left: size.width * 0.06),
                 //padding: EdgeInsets.only(left: 5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -41,11 +55,12 @@ class LoginPage extends StatelessWidget {
                 margin: EdgeInsets.only(left: size.width * 0.08, right: size.width * 0.08),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: const [
+                  children: [
                     Text('Tên đăng nhập'),
                     SizedBox(height: 10,),
                     TextField(
-                      decoration: InputDecoration(
+                      controller: myController,
+                      decoration: const InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.black)
                         ),
@@ -102,7 +117,12 @@ class LoginPage extends StatelessWidget {
               ElevatedButton(
                   onPressed: (){
                     sleep(const Duration(milliseconds: 500));
-                    Navigator.pushReplacementNamed(context, '/home');
+                    if(myController.text == 'chuhui'){
+                      Navigator.pushReplacementNamed(context, '/homeChuHui');
+                    }else{
+                      Navigator.pushReplacementNamed(context, '/home');
+                    }
+
                   },
                   child: Text('Đăng nhập'),
                   style: ElevatedButton.styleFrom(
@@ -111,16 +131,16 @@ class LoginPage extends StatelessWidget {
                   ),
               ),
               SizedBox(height: size.height * 0.01,),
-              ElevatedButton.icon(
-                icon: FaIcon(FontAwesomeIcons.google),
-                onPressed: (){},
-                label: Text('Đăng nhập với google'),
-                style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF2D3748),
-                    minimumSize: Size(340,45)
-                ),
-              ),
-              SizedBox(height: size.height * 0.02,),
+              // ElevatedButton.icon(
+              //   icon: FaIcon(FontAwesomeIcons.google),
+              //   onPressed: (){},
+              //   label: Text('Đăng nhập với google'),
+              //   style: ElevatedButton.styleFrom(
+              //       primary: Color(0xFF2D3748),
+              //       minimumSize: Size(340,45)
+              //   ),
+              // ),
+              // SizedBox(height: size.height * 0.02,),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

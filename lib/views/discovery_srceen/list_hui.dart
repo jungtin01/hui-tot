@@ -8,16 +8,16 @@ class ListHui extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<HuiInfo> listHui = [
-        HuiInfo(name: 'Ngô Hoàng Nam', money: '50,000,000đ', soKy: '60', moiKy: '200,000đ', thamGia: '8/12 người', giaoDichThanhCong: '102 giao dịch', hanGop: 'mỗi 7 ngày', tongThangGop: '27 tháng'),
-        HuiInfo(name: 'Ngô Hoàng Nam', money: '44,000,000đ', soKy: '60', moiKy: '200,000đ', thamGia: '8/12 người', giaoDichThanhCong: '102 giao dịch', hanGop: 'mỗi 7 ngày', tongThangGop: '27 tháng'),
-        HuiInfo(name: 'Ngô Hoàng Nam', money: '21,000,000đ', soKy: '60', moiKy: '200,000đ', thamGia: '8/12 người', giaoDichThanhCong: '102 giao dịch', hanGop: 'mỗi 7 ngày', tongThangGop: '27 tháng'),
-        HuiInfo(name: 'Ngô Hoàng Nam', money: '56,000,000đ', soKy: '60', moiKy: '200,000đ', thamGia: '8/12 người', giaoDichThanhCong: '102 giao dịch', hanGop: 'mỗi 7 ngày', tongThangGop: '27 tháng'),
+        HuiInfo(name: 'Đỗ Mai Nam', money: '50,000,000đ', soKy: '60', moiKy: '200,000đ', thamGia: '8/12 người', giaoDichThanhCong: '45 dây hụi', hanGop: 'mỗi 7 ngày', tongThangGop: '27 tháng'),
+        HuiInfo(name: 'Ngô Văn A', money: '44,000,000đ', soKy: '60', moiKy: '200,000đ', thamGia: '8/12 người', giaoDichThanhCong: '45 dây hụi', hanGop: 'mỗi 7 ngày', tongThangGop: '27 tháng'),
+        HuiInfo(name: 'Cao Thị B', money: '21,000,000đ', soKy: '60', moiKy: '200,000đ', thamGia: '8/12 người', giaoDichThanhCong: '45 dây hụi', hanGop: 'mỗi 7 ngày', tongThangGop: '27 tháng'),
+        HuiInfo(name: 'Hồ Thị C', money: '56,000,000đ', soKy: '60', moiKy: '200,000đ', thamGia: '8/12 người', giaoDichThanhCong: '45 dây hụi', hanGop: 'mỗi 7 ngày', tongThangGop: '27 tháng'),
     ];
 
     return Align(
       alignment: Alignment.center,
       child: SizedBox(
-        height: 300,
+        height: 318,
         width: 370,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -41,8 +41,30 @@ class ListHui extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(e.name as String, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-                            Text(e.money as String, style: TextStyle(fontSize: 20, color: Color(0xFF089C44) , fontWeight: FontWeight.bold),)
+                            Row(
+                              children: [
+                                CircleAvatar(
+                                  child: Image.network("https://cuoifly.tuoitre.vn/820/0/ttc/r/2021/08/17/trend-vit-vang-07-1629170793.jpg"),
+                                ),
+                                SizedBox(width: 5,),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(e.name as String, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,)),
+                                    Text('Chủ hụi')
+                                  ],
+                                )
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(e.money as String, style: TextStyle(fontSize: 16, color: Color(0xFF089C44) , fontWeight: FontWeight.bold),),
+                                Text('tổng số tiền / lần hốt'),
+                              ],
+                            )
+//                            Text(e.name as String, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+//                             Text(e.money as String, style: TextStyle(fontSize: 19, color: Color(0xFF089C44) , fontWeight: FontWeight.bold),)
                           ],
                         ),
                         SizedBox(height: 6,),
@@ -53,7 +75,7 @@ class ListHui extends StatelessWidget {
                               children: [
                                 Icon(Icons.calendar_today_outlined),
                                 SizedBox(width: 7,),
-                                Text('Số kỳ')
+                                Text('Số kỳ',)
                               ],
                             ),
                             Text(e.soKy as String, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),)
@@ -67,7 +89,7 @@ class ListHui extends StatelessWidget {
                               children: [
                                 Icon(Icons.attach_money_outlined),
                                 SizedBox(width: 7,),
-                                Text('Mỗi kỳ')
+                                Text('Mỗi kỳ',)
                               ],
                             ),
                             Text(e.moiKy as String, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),)
@@ -95,7 +117,7 @@ class ListHui extends StatelessWidget {
                               children: [
                                 Icon(Icons.whatshot_outlined),
                                 SizedBox(width: 7,),
-                                Text('Giao dịch thành công')
+                                Text('Dây hụi đã tạo')
                               ],
                             ),
                             Text(e.giaoDichThanhCong as String, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),)

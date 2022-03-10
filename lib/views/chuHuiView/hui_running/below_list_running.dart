@@ -1,22 +1,26 @@
+import 'package:flur_04022022/views/chuHuiView/hui_running/late_member.dart';
+import 'package:flur_04022022/views/chuHuiView/waiting_to_start/list_member_ask_chuHui.dart';
+import 'package:flur_04022022/views/chuHuiView/waiting_to_start/list_member_chuHui.dart';
 import 'package:flur_04022022/views/history_screen/history.dart';
-import 'package:flur_04022022/views/infoHui_screen/list_member.dart';
-import 'package:flur_04022022/views/test.dart';
 import 'package:flutter/material.dart';
 
-class JoinView extends StatefulWidget {
-  const JoinView({Key? key}) : super(key: key);
+class BelowListRunning extends StatefulWidget {
+  const BelowListRunning({Key? key}) : super(key: key);
 
   @override
-  _JoinViewState createState() => _JoinViewState();
+  _BelowListState createState() => _BelowListState();
 }
 
-class _JoinViewState extends State<JoinView> {
+class _BelowListState extends State<BelowListRunning> {
   bool checkButton1 = true;
   bool checkButton2 = false;
+  bool checkButton3 = false;
   int currentIndex = 0;
-  List joinView = [
-    ListMemberJoined(),
-    HistoryTrade()
+
+  List listView = [
+    ListMemberAdminWait(),
+    HistoryTrade(),
+    LateMember(),
   ];
 
   @override
@@ -37,6 +41,7 @@ class _JoinViewState extends State<JoinView> {
                     setState(() {
                       checkButton1 = true;
                       checkButton2 = false;
+                      checkButton3 = false;
                       currentIndex = 0;
                     });
                   },
@@ -54,15 +59,34 @@ class _JoinViewState extends State<JoinView> {
                     setState(() {
                       checkButton1 = false;
                       checkButton2 = true;
+                      checkButton3 = false;
                       currentIndex = 1;
                     });
                   },
-                  child: Text('Lịch sử giao dịch', style: TextStyle(color: Colors.white, fontSize: 15),)
+                  child: Text('Lịch sử hụi', style: TextStyle(color: Colors.white, fontSize: 15),)
+              ),
+            ),
+            DecoratedBox(
+              decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: checkButton3 ? Colors.white : Color(0xFF089C44))
+                  )
+              ),
+              child: TextButton(
+                  onPressed: (){
+                    setState(() {
+                      checkButton1 = false;
+                      checkButton2 = false;
+                      checkButton3 = true;
+                      currentIndex = 2;
+                    });
+                  },
+                  child: Text('Thành viên trễ hạn', style: TextStyle(color: Colors.white, fontSize: 15),)
               ),
             ),
           ],
         ),
-        joinView[currentIndex]
+        listView[currentIndex]
       ],
     );
   }
